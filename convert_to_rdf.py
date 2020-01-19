@@ -73,7 +73,7 @@ def cleanse(s, p, o):
 
 
 def with_opened_file(self, context):
-    with context.get_service('fs').open('data/madb.nt', 'w') as f:
+    with context.get_service('fs').open('madb.nt', 'w') as f:
         yield f
 
 
