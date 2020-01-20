@@ -2,6 +2,9 @@ MADB-LOD
 =====
 [メディア芸術データベース](https://mediaarts-db.bunka.go.jp/) Web APIからデータを取得するためのクローラと、RDFへの変換スクリプト
 
+すぐ使いたい方は、SPARQLエンドポイントとRDFデータのダンプファイルを以下で公開していますので、ご利用ください。
+- https://metadata.moe/madb-lod/
+
 ## Usage
 依存パッケージのインストール
 ```
