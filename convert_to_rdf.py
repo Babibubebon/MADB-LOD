@@ -6,10 +6,10 @@ import bonobo
 from bonobo.config import use_context_processor
 import rdflib
 from rdflib import Literal, Namespace, URIRef
-from rdflib.namespace import split_uri, RDF, RDFS, NamespaceManager
+from rdflib.namespace import split_uri, RDF, RDFS, FOAF, NamespaceManager
 from rdflib.plugins.serializers.nt import _nt_row
 
-from src.namespaces import DCTERMS, SCHEMA, MA, MADBDATA, MADBRES, MADBSRC, MADBAPI
+from src.namespaces import DCTERMS, SCHEMA, PROV, MA, MADBDATA, MADBRES, MADBSRC, MADBAPI
 from src.rules import TYPE_CONVERSION
 
 input_files = []
@@ -18,6 +18,7 @@ nsm = NamespaceManager(rdflib.Graph())
 nsm.bind('dcterm', DCTERMS)
 nsm.bind('dcterms', DCTERMS)
 nsm.bind('schema', SCHEMA)
+nsm.bind('prov', PROV)
 nsm.bind('ma', MA)
 nsm.bind('madbdata', MADBDATA)
 
@@ -54,8 +55,8 @@ def convert_to_triple(row):
             o = Literal(value, lang=lang)
             yield s, p, o
 
-    yield s, DCTERMS.source, MADBAPI[row['aipId']]
-    yield s, RDFS.seeAlso, MADBSRC[row['aipId']]
+    yield s, PROV.wasDerivedFrom, MADBAPI[row['aipId']]
+    yield s, FOAF.isPrimaryTopicOf, MADBSRC[row['aipId']]
 
 
 def cleanse(s, p, o):

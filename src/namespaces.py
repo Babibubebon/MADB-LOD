@@ -2,6 +2,7 @@ from rdflib import Namespace
 
 DCTERMS = Namespace('http://purl.org/dc/terms/')
 SCHEMA = Namespace('http://schema.org/')
+PROV = Namespace('http://www.w3.org/ns/prov#')
 MA = Namespace('https://metadata.moe/ns/madb/ma#')
 MADBDATA = Namespace('https://metadata.moe/ns/madb/madbdata#')
 
