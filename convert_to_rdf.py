@@ -40,7 +40,7 @@ def read_jsonl():
                 yield json.loads(line)
 
 
-def convert_to_ｔtriple(row):
+def convert_to_triple(row):
     s = MADBRES[row['aipId']]
     for key, values in row['metadata'].items():
         for value in values:
@@ -84,7 +84,7 @@ def write_nt(f, triple):
 
 def get_graph(**options):
     graph = bonobo.Graph()
-    graph.add_chain(read_jsonl, convert_to_ｔtriple, cleanse, write_nt)
+    graph.add_chain(read_jsonl, convert_to_triple, cleanse, write_nt)
 
     return graph
 
