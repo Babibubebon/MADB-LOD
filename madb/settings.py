@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'madb.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'MSDB-LOD-spider'
+USER_AGENT = 'MADB-LOD-spider'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
